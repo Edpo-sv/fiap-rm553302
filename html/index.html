@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        />
+        <script
+            type="text/javascript"
+            src="https://www.gstatic.com/charts/loader.js"
+        ></script>
+        <title>FinControl</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">FinControl</a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Histórico</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Investimentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Configurações</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div
+                            class="card-header text-center bg-primary text-white"
+                        >
+                            <h3>Resumo Mensal</h3>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Mês:</strong> Janeiro de 2023</p>
+                            <p><strong>Saldo:</strong> R$ 10,000.00</p>
+                            <p><strong>Despesas:</strong> R$ 5,000.00</p>
+                            <p><strong>Receitas:</strong> R$ 15,000.00</p>
+                            <p><strong>Despesas por Categoria:</strong></p>
+                            <div id="expensesChart" style="height: 300px"></div>
+                            <p><strong>Investimentos:</strong></p>
+                            <div
+                                id="investmentsChart"
+                                style="height: 300px"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div
+                            class="card-header text-center bg-primary text-white"
+                        >
+                            <h3>Notificações</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Nenhuma notificação no momento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript">
+            google.charts.load("current", { packages: ["corechart"] });
+            google.charts.setOnLoadCallback(drawCharts);
+
+            function drawCharts() {
+                drawExpensesChart();
+                drawInvestmentsChart();
+            }
+
+            function drawExpensesChart() {
+                var data = google.visualization.arrayToDataTable([
+                    ["Categoria", "Valor"],
+                    ["Alimentação", 1000],
+                    ["Moradia", 2000],
+                    ["Transporte", 1500],
+                    // Adicione mais categorias conforme necessário
+                ]);
+
+                var options = {
+                    title: "Despesas por Categoria",
+                };
+
+                var chart = new google.visualization.PieChart(
+                    document.getElementById("expensesChart")
+                );
+                chart.draw(data, options);
+            }
+
+            function drawInvestmentsChart() {
+                var data = google.visualization.arrayToDataTable([
+                    ["Tipo", "Valor"],
+                    ["Ações", 30000],
+                    ["Títulos", 15000],
+                    ["Imóveis", 5000],
+                    // Adicione mais tipos conforme necessário
+                ]);
+
+                var options = {
+                    title: "Investimentos",
+                };
+
+                var chart = new google.visualization.PieChart(
+                    document.getElementById("investmentsChart")
+                );
+                chart.draw(data, options);
+            }
+        </script>
+    </body>
+</html>

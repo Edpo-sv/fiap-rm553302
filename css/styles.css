@@ -1,0 +1,72 @@
+body {
+    background-color: #f8f9fa;
+    font-family: "Roboto", sans-serif;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    border-radius: 15px 15px 0 0;
+}
+
+.navbar {
+    background-color: #007bff;
+}
+
+.navbar-brand,
+.navbar-text {
+    color: white;
+}
+
+button.btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+button.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+canvas {
+    max-width: 100%;
+}
+
+/* Adicionando estilos para responsividade */
+@media (max-width: 767px) {
+    body {
+        padding-top: 56px; /* Adiciona espaço para a barra de navegação */
+    }
+
+    .navbar {
+        font-size: 14px;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    table th,
+    table td {
+        padding: 0.5rem;
+    }
+
+    /* Ajusta o tamanho da fonte para os títulos na seção de Resumo Mensal */
+    .card-body h3 {
+        font-size: 18px;
+    }
+}
